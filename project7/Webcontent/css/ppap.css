@@ -1,0 +1,27 @@
+@charset "EUC-KR";
+
+/*  mainJumbotron */
+.main {margin-top : 50px; }
+
+.jumbotron {
+	height : 600px;  background-size : cover;
+	background-position : center;color : #fff; }
+	.jumbotron .container {margin-top : 130px;}
+	.jumbotron .container .btn {background-color: #808080; margin-top : 30px;}    /*버튼 */
+	
+	
+	/* photo article layout */
+.photo {margin-top: 100px; margin-bottom: 100px; }       /* 간격   차이 100 */
+.photo .row .thumbnail  .imgHeight {height : 235px; width : 100%}
+.photo .row .thumbnail  img {height : 100%; width : 100%}
+.photo .row .btn-primary {background : #808080; border:none;}	
+	
+	
+	
+	
+
+	
+	footer {background-color : #000, color : #eee; font-size : 20px; height : 40px;
+	line-height : 40px }
+	footer .madeby {float : left;}
+	footer .madeby2 {float : right;}
