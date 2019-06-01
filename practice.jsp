@@ -20,24 +20,31 @@
 
 
 
- <nav class="navbar navbar-z">
-  <div class="container">
-  
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+ <nav  class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+          
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
       
-      <a class="btn btn-warning" href="#">1PM FOR CREATE </a>                  <!-- 네비게이션  글자 .-->
+      <a class="navbar-brand" href="#">1PM FOR CREATE </a>                  <!-- 네비게이션  글자 .-->
     </div>
     
      </div>                                                                  <!-- 네비게이션 버튼 .-->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="btn btn-success">
+            <ul class="nav navbar-nav">
                 <li><a href="main.jsp">메인화면</a></li>
                  <li><a href="main.jsp">자유게시판</a></li>
                   <li><a href="main.jsp">중고거래</a></li>
