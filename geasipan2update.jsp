@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter"%>
-<%@ page import="geasipan.geasipan"%>
-<%@ page import="geasipan.geasipanwrite"%>
+<%@ page import="geasipan2.geasipan2"%>
+<%@ page import="geasipan2.geasipan2write"%>
 
 <!DOCTYPE html>
 <html>
@@ -35,15 +35,15 @@
          PrintWriter script = response.getWriter();
          script.println("<script>");
          script.println("alert('유효하지 않은 글 입니다.')");
-         script.println("location.href = 'geasipan.jsp'");
+         script.println("location.href = 'geasipan2.jsp'");
          script.println("</script>");
       }
-      geasipan geasipan = new geasipanwrite().getgeasipan(number);
-      if (!userID.equals(geasipan.getuserID())) {
+      geasipan2 geasipan2 = new geasipan2write().getgeasipan(number);
+      if (!userID.equals(geasipan2.getuserID())) {
          PrintWriter script = response.getWriter();
          script.println("<script>");
          script.println("alert('권한이 없습니다.')");
-         script.println("location.href = 'geasipan.jsp'");
+         script.println("location.href = 'geasipan2.jsp'");
          script.println("</script>");            
       }
    %>
@@ -60,7 +60,7 @@
         </div>
          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-               <li><a href="main.jsp">메인</a></li>
+                <li><a href="main.jsp">메인</a></li>
                 <li><a href="geasipan.jsp">자유 게시판</a></li>
                <li><a href="geasipan2.jsp">중고거래 게시판</a></li>
                <li><a href="guidemain.jsp">입문 가이드</a></li>
@@ -96,7 +96,7 @@
    <!-- 게시판 --> 
    <div class="container">
       <div class="row">
-         <form method="post" action="geasipanupdateaction.jsp?number=<%= number %> ">
+         <form method="post" action="geasipan2updateaction.jsp?number=<%= number %> ">
             <table class="table table-striped"
                style="text-align: center; border: 1px solid #dddddd">
                <thead>
@@ -107,10 +107,10 @@
                </thead>
                <tbody>
                   <tr>
-                     <td><input type="text" class="form-control" placeholder="글 제목" name="title" maxlength="50" value="<%= geasipan.gettitle() %>" ></td>
+                     <td><input type="text" class="form-control" placeholder="글 제목" name="title" maxlength="50" value="<%= geasipan2.gettitle() %>" ></td>
                   </tr>
                   <tr>
-                     <td><textarea class="form-control" placeholder="글 내용" name="content" maxlength="2000" style="height: 350px;" ><%= geasipan.getcontent() %></textarea></td>
+                     <td><textarea class="form-control" placeholder="글 내용" name="content" maxlength="2000" style="height: 350px;" ><%= geasipan2.getcontent() %></textarea></td>
                   </tr>
                </tbody>
             </table>   

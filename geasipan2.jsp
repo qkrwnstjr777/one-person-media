@@ -2,8 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter"%>
-<%@ page import="geasipan.geasipanwrite"%>
-<%@ page import="geasipan.geasipan"%>
+<%@ page import="geasipan2.geasipan2write"%>
+<%@ page import="geasipan2.geasipan2"%>
 <%@ page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html> 
@@ -76,7 +76,7 @@
             %>
          </div>
       </nav>
-      <h3 style="text-align:center;">자유 게시판</h3>
+      <h3 style="text-align:center;">중고거래 게시판</h3>
       <div class="container">
          <div class="row">
             <table class="table table-striped"
@@ -91,13 +91,13 @@
                </thead>
                <tbody>
                   <%
-                  geasipanwrite geasipanwrite = new geasipanwrite();
-                     ArrayList<geasipan> list = geasipanwrite.getList(pageNumber);
+                  geasipan2write geasipan2write = new geasipan2write();
+                     ArrayList<geasipan2> list = geasipan2write.getList(pageNumber);
                      for (int i = 0; i < list.size(); i++) {
                   %>
                   <tr>
                      <td><%=list.get(i).getnumber()%></td>
-                     <td><a href="geasipanview.jsp?number=<%=list.get(i).getnumber()%>"><%=list.get(i).gettitle()%></a></td>
+                     <td><a href="geasipan2view.jsp?number=<%=list.get(i).getnumber()%>"><%=list.get(i).gettitle()%></a></td>
                      <td><%=list.get(i).getuserID()%></td>
                      <td><%=list.get(i).getdate().substring(0, 11) + list.get(i).getdate().substring(11, 13) + "시"
                      + list.get(i).getdate().substring(14, 16) + "분"%></td>
@@ -110,13 +110,13 @@
             <%
                if (pageNumber != 1) {
             %>
-            <a href="geasipan.jsp?pageNumber=<%=pageNumber - 1%>"
+            <a href="geasipan2.jsp?pageNumber=<%=pageNumber - 1%>"
                class="btn btn-success btn-arrow-left">이전 페이지</a>
             <%
                }
-               if (geasipanwrite.nextPage(pageNumber)) {
+               if (geasipan2write.nextPage(pageNumber)) {
             %>
-            <a href="geasipan.jsp?pageNumber=<%=pageNumber + 1%>"
+            <a href="geasipan2.jsp?pageNumber=<%=pageNumber + 1%>"
                class="btn btn-success btn-arrow-left">다음 페이지</a>
             <%
                }
@@ -126,7 +126,7 @@
                //if logined userID라는 변수에 해당 아이디가 담기고 if not null
                if (session.getAttribute("userID") != null) {
             %>
-            <a href="geasipanwrite.jsp" class="btn btn-primary pull-right">글작성</a>
+            <a href="geasipan2write.jsp" class="btn btn-primary pull-right">글작성</a>
             <%
                } else {
             %>

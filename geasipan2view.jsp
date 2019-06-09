@@ -2,17 +2,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter"%>
-<%@ page import="geasipan.geasipan"%>
-<%@ page import="geasipan.geasipanwrite"%>
-<%@ page import="review.review"%>
-<%@ page import="review.reviewwrite"%>
+<%@ page import="geasipan2.geasipan2"%>
+<%@ page import="geasipan2.geasipan2write"%>
+<%@ page import="review2.review2"%>
+<%@ page import="review2.review2write"%>
 <%@ page import="java.util.ArrayList"%>
 <!DOCTYPE html>
-<html> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 <meta name="viewport" content="width=device-width" initial-scale="1"> 
-<link rel="stylesheet" href="css/bootstrap.css"> 
+<link rel="stylesheet" href="css/bootstrap.css">
 <title>1PM for create</title> 
 </head>
 <body>
@@ -37,8 +37,8 @@
          script.println("location.href = 'geasipan.jsp'");
          script.println("</script>");
       }
-      geasipan geasipan = new geasipanwrite().getgeasipan(number);
-      review review = new reviewwrite().getreview(reviewnumber);
+      geasipan2 geasipan2 = new geasipan2write().getgeasipan(number);
+      review2 review2 = new review2write().getreview(reviewnumber);
    %>
 
    <nav class="navbar navbar-default">
@@ -99,42 +99,39 @@
                <tbody>
                   <tr>
                      <td style="width: 20%;"> 제목 </td>
-                     <td colspan="2"><%= geasipan.gettitle() .replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br/>") %>
+                     <td colspan="2"><%= geasipan2.gettitle() .replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br/>") %>
                      </td>
                   </tr>
                   <tr>
                      <td> 작성자 </td>   
-                     <td colspan="2"><%= geasipan.getuserID() %></td>
+                     <td colspan="2"><%= geasipan2.getuserID() %></td>
+                  </tr>
+                  <tr>
+                     <td> 작성자 연락처 </td>   
+                     <td colspan="2"><%= geasipan2.getuserTel() %></td>
                   </tr>
                   <tr>
                      <td> 작성시간 </td>   
-                     <td colspan="2"><%= geasipan.getdate().substring(0, 11) + geasipan.getdate().substring(11, 13) + "시"
-                     + geasipan.getdate().substring(14, 16) + "분"%></td>
+                     <td colspan="2"><%= geasipan2.getdate().substring(0, 11) + geasipan2.getdate().substring(11, 13) + "시"
+                     + geasipan2.getdate().substring(14, 16) + "분"%></td>
                   </tr>
                   <tr>
                      <td> 내용 </td>   
-                     <td colspan="2" style="min-height: 400px; text-align: left;"><%= geasipan.getcontent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br/>") %>
+                     <td colspan="2" style="min-height: 400px; text-align: left;"><%= geasipan2.getcontent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br/>") %>
                   </tr>
-         
-
-
                   </tbody>
                </table>   
-               <a href = "geasipan.jsp" class="btn btn-info"> 목록 </a>
-               <a href = "review.jsp" class="btn btn-info"> 댓글 남기기 (게시 글번호:<%=geasipan.getnumber()%>)</a>
+               <a href = "geasipan2.jsp" class="btn btn-info"> 목록 </a>
+               <a href = "review2.jsp" class="btn btn-info"> 댓글 남기기 (게시 글번호:<%=geasipan2.getnumber()%>)</a>
                <%
                //글작성자 본인일시 수정 삭제 가능 
-                  if(userID != null && userID.equals(geasipan.getuserID())){
+                  if(userID != null && userID.equals(geasipan2.getuserID())){
                %>
-                  <a href="geasipanupdate.jsp?number=<%= number %>" class="btn btn-warning"> 수정 </a>
-                  <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="geasipandeleteaction.jsp?number=<%= number %>"class="btn btn-danger"> 삭제 </a>
+                  <a href="geasipan2update.jsp?number=<%= number %>" class="btn btn-warning"> 수정 </a>
+                  <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="geasipan2deleteaction.jsp?number=<%= number %>"class="btn btn-danger"> 삭제 </a>
                <%               
                   }
                %>
-               
-               <div align="right">
-               <a href = "goodornotgood.jsp?number=<%= number %>" class="btn btn-info"> 추천 (<%=geasipan.getgood()%>)</a>
-               <a href = "notgood.jsp?number=<%= number %>" class="btn btn-danger"> 비추천 (<%=geasipan.getnotgood()%>)</a>
          </div>
          </div>
       </div>
@@ -155,8 +152,8 @@
                </thead>
                <tbody>
                   <%
-                     reviewwrite reviewwrite = new reviewwrite();
-                     ArrayList<review> list = reviewwrite.getList(reviewnumber, number);
+                     review2write reviewwrite = new review2write();
+                     ArrayList<review2> list = reviewwrite.getList(reviewnumber, number);
                      for (int i = 0; i < list.size(); i++) {
                   %>
                   <tr>

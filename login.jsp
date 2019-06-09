@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>    
+<%@ page import="user.user" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +25,8 @@
             <ul class="nav navbar-nav">
                 <li><a href="main.jsp">메인</a></li>
                 <li><a href="geasipan.jsp">자유 게시판</a></li>
+               <li><a href="geasipan2.jsp">중고거래 게시판</a></li>
+               <li><a href="guidemain.jsp">입문 가이드</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
